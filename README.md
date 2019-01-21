@@ -4,6 +4,10 @@
 
 [![NPM](https://img.shields.io/npm/v/dacom.svg)](https://www.npmjs.com/package/dacom) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
+Docs & Examples:
+
+https://pages.github.ibm.com/gts-decision-advisor/dacom/
+
 ## Local install
 
 1. Clone the project
