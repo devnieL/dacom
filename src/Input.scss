@@ -1,0 +1,246 @@
+@import '@ibm/plex/css/ibm-plex.min.css';
+
+.da__Input {
+  line-height: inherit;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  font-family: "IBM Plex Sans";
+
+  .da__Input__inner {
+    display: flex;
+    flex-direction: column;
+
+    .da__Input__Input-Label {
+      height: 30px;
+    }
+
+    &.da__Input__label-top {
+      flex-direction: column;
+
+      .da__Input__Input-Label {
+        color: inherit;
+        font-size: 12px;
+        font-family: inherit;
+        font-weight: 400;
+        line-height: initial;
+        margin-bottom: 10px;
+      }
+    }
+
+    &.da__Input__label-bottom {
+      flex-direction: column-reverse;
+
+      .da__Input__Input-Label {
+        color: inherit;
+        font-size: 12px;
+        font-family: inherit;
+        font-weight: 400;
+        line-height: initial;
+        margin-top: 5px;
+      }
+    }
+  }
+
+  .da__Input__Input-Control {
+    position: relative;
+    width: auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #DCDCDC;
+
+    .da__Input__Input-Control-Prefix {
+      font-family: inherit;
+      font-weight: 300;
+      color: inherit;
+      text-align: left;
+      width: auto;
+      height: 100%;
+      display: flex;
+      font-size: inherit;
+      line-height: inherit;
+      align-items: center;
+      margin-right: 2px;
+    }
+
+    .da__Input__Input-Control-Scrollbar {
+      overflow-x: hidden;
+
+      .da__Input__thumb {
+        background: rgba(255, 255, 255, 0.7);
+        border-radius: 100px;
+      }
+    }
+
+    .da__Input__textarea, .da__Input__input {
+      padding: 0px;
+      border: none;
+      word-spacing: 0px;
+      outline: none;
+      resize: none;
+      overflow: hidden;
+      font-size: 3.75rem;
+      background: transparent;
+      color: inherit;
+      outline: none;
+      width: 100%;
+      height: 100%;
+      font-family: inherit;
+      font-weight: 300;
+      line-height: inherit;
+      font-size: inherit;
+      flex: 1;
+
+      &::placeholder {
+        color: inherit;
+        opacity: 0.7;
+        font-family: inherit;
+        font-weight: 300;
+      }
+
+      &:hover {
+        &::placeholder {
+          color: inherit;
+          opacity: 1;
+          font-family: inherit;
+          font-weight: 300;
+        }
+      }
+
+    }
+
+  }
+
+  // Input on focus
+  &[data-focused=true] {
+    .da__Input__Input-Control {
+      border-bottom: 1px solid;
+
+      .da__Input__input {
+        &::placeholder {
+          color: transparent;
+        }
+      }
+    }
+  }
+
+  // Input invalid
+  &[data-status=error] {
+    .da__Input__Input-Control {
+      border-bottom: 1px solid rgba(#FB4B53, 0.5) !important;
+    }
+
+    &[data-focused=true] {
+      .da__Input__Input-Control {
+        border-bottom: 1px solid #FB4B53 !important;
+      }
+    }
+
+  }
+
+  /*
+  &[data-type='text'],
+  &[data-type='number']{
+      input {
+
+          &:focus {
+              border-bottom: 1px solid #0F6FFF;
+
+              &::placeholder {
+                  color: transparent;
+              }
+          }
+
+      }
+  }  */
+
+  &[data-with-prefix='false']{
+    .da__Input__Input-Control {
+      .da__Input__input {
+        padding: 0px;
+      }
+    }
+  }
+
+  // Input Status
+  .da__Input__Input-Status {
+    position: relative;
+    font-size: 12px;
+    line-height: 12px;
+    background: #FB4B53;
+    border-radius: 16px;
+    color: #FFF;
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    .da__Input__Input-Status__icon {
+      transform: scale(0.7);
+    }
+
+    &:hover {
+      .da__Input__Input-Status-Message {
+        display: block;
+      }
+    }
+
+    .da__Input__Input-Status-Message {
+      display: block;
+      width: auto;
+      height: auto;
+      background: #FB4B53;
+      color: #FFF;
+      font-size: 11px;
+      padding: 8px 18px 8px 18px;
+      border-radius: 50px;
+      position: absolute;
+      left: 30px;
+      top: -18px;
+      font-weight: 400;
+      white-space: pre;
+      box-shadow: -2px 2px 2px 0 rgba(178, 178, 178, 0.4);
+      display:none;
+      z-index: 1;
+
+      .da__Input__p {
+        font-size: 11px;
+        line-height: 11px;
+      }
+
+      &::before {
+        border-radius: 2px;
+        background-color: #FB4B53;
+        content: "\A0";
+        display: block;
+        height: 18px;
+        position: absolute;
+        top: 16px;
+        transform: rotate(45deg);
+        width: 18px;
+        box-shadow: -2px 2px 2px 0 rgba(178, 178, 178, 0.4);
+        left: -5px;
+        top: 50%;
+        margin-top: -9px;
+      }
+
+    }
+  }
+
+  &[data-status=warning]{
+    .da__Input__Input-Status {
+      background: #0F6FFF;
+      .da__Input__Input-Status-Message {
+        background: #0F6FFF;
+        &::before {
+          background-color: #0F6FFF;
+        }
+      }
+    }
+  }
+
+}

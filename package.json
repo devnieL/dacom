@@ -44,18 +44,36 @@
     "eslint-plugin-react": "^7.10.0",
     "eslint-plugin-standard": "^3.1.0",
     "gh-pages": "^1.2.0",
+    "node-sass": "^4.11.0",
+    "postcss-preset-env": "^6.5.0",
+    "postcss-scss": "^2.0.0",
+    "postcss-smart-import": "^0.7.6",
+    "precss": "^4.0.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-scripts": "^1.1.4",
+    "react-styleguidist": "^8.0.6",
     "rollup": "^0.64.1",
     "rollup-plugin-babel": "^3.0.7",
     "rollup-plugin-commonjs": "^9.1.3",
     "rollup-plugin-node-resolve": "^3.3.0",
     "rollup-plugin-peer-deps-external": "^2.2.0",
-    "rollup-plugin-postcss": "^1.6.2",
-    "rollup-plugin-url": "^1.4.0"
+    "rollup-plugin-postcss": "^1.6.3",
+    "rollup-plugin-url": "^1.4.0",
+    "sass-loader": "^7.1.0",
+    "webpack": "^4.29.0",
+    "webpack-blocks": "^1.0.0"
   },
   "files": [
     "dist"
-  ]
+  ],
+  "dependencies": {
+    "@ibm/plex": "^1.2.3",
+    "carbon-components": "^9.68.2",
+    "carbon-components-react": "^6.77.0",
+    "carbon-icons": "^7.0.7",
+    "classnames": "^2.2.6",
+    "crypto": "^1.0.1",
+    "validator": "^10.11.0"
+  }
 }
