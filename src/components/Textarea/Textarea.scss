@@ -1,0 +1,107 @@
+.da__Textarea {
+  line-height: inherit;
+  display: flex;
+  flex-direction: column;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "IBM Plex Sans";
+
+  .da__Textarea__textarea-label {
+    color: #000;
+    font-size: 20px;
+    font-family: inherit;
+    font-weight: 400;
+    line-height: initial;
+    margin-bottom: 10px;
+  }
+
+  .da__Textarea__textarea-wrapper2 {
+    cursor: text;
+    width : 100%;
+    height: 100%;
+    position: relative;
+
+    .da__Textarea__textarea-prefix {
+      font-family: inherit;
+      font-weight: 300;
+      color: inherit;
+      position: absolute;
+      right: 0px;
+      top: 0px;
+      text-align: left;
+      width: auto;
+      height: auto;
+      display: block;
+      font-size: inherit;
+      line-height: inherit;
+      margin-right: 100%;
+    }
+
+  }
+
+  .da__Textarea__textarea-wrapper {
+    cursor: text;
+    width : 100%;
+    height: 100%;
+    position: relative;
+
+    &[data-with-line=true] {
+      border-bottom: 1px solid #CCC;
+    }
+
+
+    .da__Textarea__textarea-thumb {
+      background: inherit;
+      opacity: 0.7;
+      border-radius: 100px;
+    }
+
+    .da__Textarea__textarea,
+    .da__Textarea__input {
+      padding: 0px;
+      resize: none;
+      background: transparent;
+      border: none;
+      color: inherit;
+      outline: none;
+      //overflow: hidden;
+
+
+      width: 100%;
+
+      //min-width: 100px;
+      //height: 100%;
+      font-family: inherit;
+      font-weight: 300;
+      line-height: inherit;
+      font-size: inherit;
+
+      &::placeholder {
+        color: inherit;
+        opacity: 0.7;
+        font-family: inherit;
+        font-weight: 300;
+      }
+
+      &:hover {
+        &::placeholder {
+          color: inherit;
+          opacity: 1;
+          font-family: inherit;
+          font-weight: 300;
+        }
+      }
+    }
+
+  }
+
+  &[data-with-prefix=true]{
+    .da__Textarea__textarea-wrapper2 {
+      .da__Textarea__textarea-wrapper {
+        //padding-left: 50px;
+      }
+    }
+  }
+
+}

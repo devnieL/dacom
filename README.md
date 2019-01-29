@@ -46,3 +46,5 @@ class Post extends Component {
   }
 }
 ```
+
+Created with https://github.com/transitive-bullshit/create-react-library
