@@ -60,8 +60,6 @@
     box-sizing: border-box;
 
 
-
-
     .da__Textarea__textarea-thumb {
       background: inherit;
       opacity: 0.7;
@@ -80,6 +78,7 @@
       font-weight: 300;
       line-height: inherit;
       font-size: inherit;
+      overflow: hidden;
 
       &::placeholder {
         color: inherit;
@@ -98,14 +97,6 @@
       }
     }
 
-  }
-
-  &[data-with-prefix=true]{
-    .da__Textarea__textarea-wrapper2 {
-      .da__Textarea__textarea-wrapper {
-        //padding-left: 50px;
-      }
-    }
   }
 
 }
