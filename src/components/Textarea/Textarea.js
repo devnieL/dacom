@@ -4,7 +4,6 @@ import TextareaAutosize from 'react-textarea-autosize';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import './Textarea.scss';
-import CustomScroll from 'react-custom-scroll';
 
 const TAG = 'Textarea';
 
