@@ -6,7 +6,7 @@
 
 Docs & Examples:
 
-https://pages.github.ibm.com/gts-decision-advisor/dacom/
+https://devniel.github.io/dacom/
 
 ## Local install
 
