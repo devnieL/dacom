@@ -3,7 +3,8 @@ module.exports = {
   components: 'src/**/[A-Z]*.js',
   theme: {
 		font: ['IBM Plex Sans', 'Helvetica', 'sans-serif'],
-	},
+  },
+  styleguideDir: 'docs',
   webpackConfig: {
     module: {
       rules: [
