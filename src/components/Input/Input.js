@@ -78,6 +78,23 @@ export default class Input extends Component {
     }
   }
 
+  static getDerivedStateFromProps(props, state) {
+    const {value} = props;
+    const stateUpdates = {};
+    let newState;
+
+    if(value !== state.defaultValue){
+      stateUpdates.defaultValue = value;
+      stateUpdates.value = value;
+      newState = Object.assign({}, state, stateUpdates);
+    }else{
+      newState = Object.assign({}, state);
+    }
+
+    return newState;
+
+  }
+
   componentDidMount() {
     const { focus } = this.props;
     const { value } = this.state;

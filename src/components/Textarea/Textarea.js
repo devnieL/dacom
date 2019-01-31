@@ -8,6 +8,10 @@ import CustomScroll from 'react-custom-scroll';
 
 const TAG = 'Textarea';
 
+/**
+ * Textarea component with **auto height** support and
+ * easy customization.
+ */
 class Textarea extends Component {
 
   static defaultProps = {
@@ -62,23 +66,33 @@ class Textarea extends Component {
     };
   }
 
-  componentDidUpdate(prevProps) {
-    const { value } = this.props;
+  static getDerivedStateFromProps(props, state) {
+    const {value} = props;
+    const stateUpdates = {};
+    let newState;
 
-    // Log.info(TAG, "Textarea.componentDidUpdate() | value :", value, "| prevProps.value: ", prevProps.value);
-
-    if (value !== prevProps.value) {
-      /* eslint-disable react/no-did-update-set-state */
-      this.setState({
-        value,
-      });
-      /* eslint-enable react/no-did-update-set-state */
+    if(value !== state.defaultValue){
+      stateUpdates.defaultValue = value;
+      stateUpdates.value = value;
+      newState = Object.assign({}, state, stateUpdates);
+    }else{
+      newState = Object.assign({}, state);
     }
+
+    return newState;
+
+  }
+
+  componentDidMount() {
+
+    console.log(this.bodyElement.clientHeight);
+
+    this.setState({
+      textareaBodyHeight: this.bodyElement.clientHeight
+    })
   }
 
   onInput = e => {
-    const { autoHeight, visibleLines, height } = this.props;
-    const { textareaWrapperHeight, baseHeight } = this.state;
 
     this.setState(
       {
@@ -126,7 +140,7 @@ class Textarea extends Component {
 
   render() {
 
-    const { id, isScrollbar, value, focused, textareaWrapperWidth, textareaWrapperHeight } = this.state;
+    const { id, value, focused, textareaBodyHeight } = this.state;
 
     const {
       className,
@@ -168,42 +182,112 @@ class Textarea extends Component {
       onBlur={this.onBlur}
       inputRef={e => (this.textarea = e)}
       value={value || ''}
-      style={inputStyles}
       tabIndex={tabIndex}
       placeholder={placeholder}
       autoFocus={autofocus}
       maxLength={maxLength}
       onChange={this.onInput} />
 
-    component = (
-      <div className={finalClasName} style={style} data-with-prefix={prefix !== null}>
+    if(autoHeight){
 
-        {label && (
-          <label htmlFor={id} className="da__Textarea__textarea-label">
-            {label}
-          </label>
-        )}
+      let autoHeightMax = (() => {
+        if(inputStyles.maxHeight){
+          return parseInt(inputStyles.maxHeight);
+        }
+        if(style.height == 'auto'){
+          return Number.MAX_VALUE;
+        }
+        if(textareaBodyHeight){
+          return textareaBodyHeight;
+        }
+        return Number.MAX_VALUE;
+      })();
 
-        <div className='da__Textarea__textarea-wrapper2' data-prefix={prefix}>
+      component = (
+        <div className={finalClasName} style={style} data-with-prefix={prefix !== null}>
 
-          {/* the prefix of the input element */}
-          {prefix && (
-            <div className="da__Textarea__textarea-prefix" >
-              <span style={inputStyles}>{prefix}</span>
-            </div>
+          {label && (
+            <label htmlFor={id} className="da__Textarea__textarea-label">
+              {label}
+            </label>
           )}
 
-          <Scrollbars onClick={this.focus} className="da__Textarea__textarea-wrapper" style={
-            !focused
-              ? {...lineColor.onBlur}
-              : {...lineColor.onFocus}
-          } data-with-line={withLine} >
-            {textarea}
-          </Scrollbars>
-        </div>
+          <div
+            className='da__Textarea__textarea-body'
+            style={
+              !focused
+                ? {...inputStyles, ...lineColor.onBlur}
+                : {...inputStyles, ...lineColor.onFocus}
+            }
+            data-prefix={prefix}
+            data-with-line={withLine}
+            onClick={this.focus}
+            ref={ (e) => this.bodyElement = e }>
 
-      </div>
-    );
+            {/* the prefix of the input element */}
+            {prefix && (
+              <div className="da__Textarea__textarea-prefix" >
+                <span style={inputStyles}>{prefix}</span>
+              </div>
+            )}
+
+            <Scrollbars
+              className="da__Textarea__textarea-wrapper-with-scrollbars"
+              hideTracksWhenNotNeeded
+              autoHide
+              autoHeight
+              autoHeightMin={parseInt(inputStyles.minHeight)}
+              autoHeightMax={autoHeightMax}
+              onClick={this.focus}>
+              {textarea}
+            </Scrollbars>
+          </div>
+
+        </div>
+      );
+
+    }else{
+
+      component = (
+        <div className={finalClasName} style={style} data-with-prefix={prefix !== null}>
+
+          {label && (
+            <label htmlFor={id} className="da__Textarea__textarea-label">
+              {label}
+            </label>
+          )}
+
+          <div
+            className='da__Textarea__textarea-body'
+            style={inputStyles}
+            data-prefix={prefix}
+            ref={ (e) => this.bodyElement = e }>
+
+            {/* the prefix of the input element */}
+            {prefix && (
+              <div className="da__Textarea__textarea-prefix" >
+                <span style={inputStyles}>{prefix}</span>
+              </div>
+            )}
+
+            <Scrollbars
+              className="da__Textarea__textarea-wrapper-with-scrollbars"
+              autoHide
+              onClick={this.focus}
+              style={
+                !focused
+                  ? {...lineColor.onBlur}
+                  : {...lineColor.onFocus}
+              }
+              data-with-line={withLine} >
+              {textarea}
+            </Scrollbars>
+          </div>
+
+        </div>
+      );
+
+    }
 
     return component;
 

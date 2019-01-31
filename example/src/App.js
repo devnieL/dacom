@@ -10,7 +10,7 @@ export default class App extends Component {
 
         <Textarea
           className='Textarea'
-          style={{ width: '200px', height: '200px', marginLeft: '100px'}}
+          style={{ width: '200px', height: 'auto'}}
           labelStyles={{
             fontSize: '12px',
             marginBottom: '3px',
@@ -19,11 +19,34 @@ export default class App extends Component {
           inputStyles={{
             fontSize: '12px',
             color: '#333',
-            lineHeight: '12px'
+            lineHeight: '12px',
+            width: '100%',
+            height: '200px'
           }}
           onChange={(v) => console.log(v)}
           value={'Daniel Flores'}
-          multiline
+          label="Company name"
+          placeholder="Type in company name"
+        />
+
+        <Textarea
+          className='Textarea'
+          style={{ width: '200px', height: '200px'}}
+          labelStyles={{
+            fontSize: '12px',
+            marginBottom: '3px',
+            color: '#000'
+          }}
+          inputStyles={{
+            fontSize: '12px',
+            color: '#333',
+            lineHeight: '12px',
+            width: '100%',
+            minHeight: '50px'
+          }}
+          autoHeight
+          onChange={(v) => console.log(v)}
+          value={'Daniel Flores'}
           label="Company name"
           placeholder="Type in company name"
         />

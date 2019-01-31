@@ -6,6 +6,8 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: "IBM Plex Sans";
+  display: flex;
+  flex-direction: column;
 
   .da__Textarea__textarea-label {
     color: #000;
@@ -16,11 +18,15 @@
     margin-bottom: 10px;
   }
 
-  .da__Textarea__textarea-wrapper2 {
+  .da__Textarea__textarea-body {
     cursor: text;
     width : 100%;
-    height: 100%;
     position: relative;
+    flex: 1;
+
+    &[data-with-line=true] {
+      border-bottom: 1px solid #CCC;
+    }
 
     .da__Textarea__textarea-prefix {
       font-family: inherit;
@@ -36,19 +42,24 @@
       font-size: inherit;
       line-height: inherit;
       margin-right: 100%;
+
+      span {
+        padding: 0px !important;
+        background: transparent !important;
+      }
     }
 
   }
 
-  .da__Textarea__textarea-wrapper {
+  .da__Textarea__textarea-wrapper-with-scrollbars {
     cursor: text;
     width : 100%;
     height: 100%;
+    min-height: inherit;
     position: relative;
+    box-sizing: border-box;
 
-    &[data-with-line=true] {
-      border-bottom: 1px solid #CCC;
-    }
+
 
 
     .da__Textarea__textarea-thumb {
@@ -57,21 +68,14 @@
       border-radius: 100px;
     }
 
-    .da__Textarea__textarea,
-    .da__Textarea__input {
+    .da__Textarea__textarea {
       padding: 0px;
       resize: none;
       background: transparent;
       border: none;
       color: inherit;
       outline: none;
-      //overflow: hidden;
-
-
       width: 100%;
-
-      //min-width: 100px;
-      //height: 100%;
       font-family: inherit;
       font-weight: 300;
       line-height: inherit;
