@@ -1,9 +1,9 @@
 {
   "name": "dacom",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "DA components",
   "author": "devniel",
-  "license": "MIT",
+  "license": "Apache-2",
   "repository": "devniel/dacom",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
