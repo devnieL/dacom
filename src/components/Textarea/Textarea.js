@@ -83,9 +83,6 @@ class Textarea extends Component {
   }
 
   componentDidMount() {
-
-    console.log(this.bodyElement.clientHeight);
-
     this.setState({
       textareaBodyHeight: this.bodyElement.clientHeight
     })

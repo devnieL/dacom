@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import validator from 'validator';
-import { Icon } from 'carbon-components-react';
+import { Icon } from '@devniel/carbon-components-react';
 
 import './Input.scss';
 

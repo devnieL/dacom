@@ -1,0 +1,97 @@
+$CHECKBOX__BORDER_COLOR: #BEBEBE;
+$CHECKBOX__BACKGROUND_COLOR: #0F6FFF;
+$CHECKBOX__BORDER_COLOR--SELECTED: #BEBEBE;
+$CHECKBOX__BACKGROUND_COLOR--SELECTED: #0F6FFF;
+
+.da__Checkbox {
+  display: flex;
+  justify-content: center;
+  height: 41px;
+
+  // EDITABLE BOOLEAN - CHECKBOX
+
+  .bx--checkbox-wrapper.da__Checkbox__wrapper {
+    margin: 0px;
+    padding: 0px;
+    width: auto;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+
+    label::before {
+      border-color: $CHECKBOX__BORDER_COLOR;
+      background-color: transparent;
+      border-width: 0.0625rem;
+      width: 1rem;
+      height: 1rem;
+    }
+
+    label::after{
+        display: none;
+    }
+
+    .bx--checkbox-label {
+      /* All Sectors: */
+      font-size: 0.75rem;
+      color: #13171A;
+      letter-spacing: 0;
+      line-height: 1rem;
+    }
+
+    .bx--checkbox-label:hover::before {
+      border-color: $CHECKBOX__BORDER_COLOR--SELECTED;
+      border-width: 0.0625rem;
+    }
+
+    .bx--checkbox:focus + .bx--checkbox-label::before {
+      box-shadow: none;
+      outline: none;
+      border-color: $CHECKBOX__BORDER_COLOR--SELECTED;
+      border-width: 0.0625rem;
+    }
+
+    input:checked ~ label::before {
+      border-color: $CHECKBOX__BORDER_COLOR--SELECTED;
+      background-color: $CHECKBOX__BACKGROUND_COLOR--SELECTED;
+    }
+
+  }
+
+  // NON EDITABLE BOOLEAN - CHECKMARK
+
+  &[data-editable='false'] {
+    border-bottom: none;
+
+    .da__Checkbox__wrapper {
+      margin: 0px;
+      padding: 0px;
+      width: auto;
+      background: transparent;
+      display: flex;
+      flex: 1;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .da__Checkbox__label {
+      font-size: 0.75rem;
+      color: #13171A;
+      letter-spacing: 0;
+      line-height: 1rem;
+      height: 1rem;
+      margin-right: 20px;
+    }
+
+    .da__Checkbox__value-icon {
+      width: 24px;
+      height: 24px;
+      padding: 7px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      fill: #0F6FFF;
+    }
+
+  }
+
+}

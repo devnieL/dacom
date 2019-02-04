@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Input, Textarea} from 'dacom';
+import {Input, Textarea, Checkbox} from 'dacom';
 import './App.css';
 
 export default class App extends Component {
@@ -49,6 +49,15 @@ export default class App extends Component {
           value={'Daniel Flores'}
           label="Company name"
           placeholder="Type in company name"
+        />
+
+        <Checkbox
+          id="checkbox-attachment"
+          defaultChecked
+          className="ModalShareTemplate-attachment-checkbox"
+          labelText={'xxx'}
+          hideLabel={false}
+          wrapperClassName=""
         />
 
       </div>

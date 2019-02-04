@@ -4,6 +4,9 @@ module.exports = {
   theme: {
 		font: ['IBM Plex Sans', 'Helvetica', 'sans-serif'],
   },
+  require: [
+    '@devniel/carbon-components/css/carbon-components.min.css'
+  ],
   styleguideDir: 'docs',
   webpackConfig: {
     module: {

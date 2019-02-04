@@ -1,6 +1,6 @@
 {
   "name": "dacom",
-  "version": "0.0.1",
+  "version": "0.0.1-alpha.1",
   "description": "DA components",
   "author": "devniel",
   "license": "Apache-2",
@@ -69,8 +69,8 @@
   ],
   "dependencies": {
     "@ibm/plex": "^1.2.3",
-    "carbon-components": "^9.68.2",
-    "carbon-components-react": "^6.77.0",
+    "@devniel/carbon-components": "latest",
+    "@devniel/carbon-components-react": "latest",
     "carbon-icons": "^7.0.7",
     "classnames": "^2.2.6",
     "object-path": "^0.11.4",
